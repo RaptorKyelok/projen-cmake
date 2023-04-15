@@ -9,23 +9,29 @@
 import { Project, ProjectOptions, TextFile } from "projen";
 
 class CMakeFileFragment {
-    dependsOn: CMakeFileFragment[]
-    prefixLines: string[]
-    postfixLines: string[]
+    dependsOn: CMakeFileFragment[] = []
+    prefixLines: string[] = []
+    postfixLines: string[] = []
 }
 
 class CMakeTarget extends CMakeFileFragment {
     name: string
     declaration_number: number
-    target_libraries: CMakeLibrary[]
+    target_libraries: CMakeLibrary[] = []
+
+    constructor(name: string, declaration_number: number) {
+        super()
+        this.name = name
+        this.declaration_number = declaration_number
+    }
 }
 
 class CMakeExecutable extends CMakeTarget {
-    files: string[]
+    files: string[] = []
 }
 
 class CMakeLibrary extends CMakeTarget {
-    files: string[]
+    files: string[] = []
 }
 
 class CMakePackage {
@@ -41,9 +47,9 @@ export interface CMakeProjectOptions extends ProjectOptions {
 export class CMakeProject extends Project {
     private _cmakefile: TextFile
 
-    private _executables: CMakeExecutable[]
-    private _libraries: CMakeLibrary[]
-    private _packages: CMakePackage[]
+    private _executables: CMakeExecutable[] = []
+    private _libraries: CMakeLibrary[] = []
+    private _packages: CMakePackage[] = []
 
     private _declaration_counter: number = 1
 
