@@ -1,0 +1,18 @@
+{
+  "name": "projen-cmake",
+  "version": "0.1.0",
+  "description": "CMake project type for Projen",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "projen",
+    "cmake",
+    "c++"
+  ],
+  "author": "Kyelok",
+  "license": "MIT",
+  "dependencies": {
+    "projen": "^0.71.7"
+  }
+}
