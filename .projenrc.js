@@ -24,6 +24,7 @@ const project = new cdk.JsiiProject({
 
   packageName: 'projen-cmake',
   deps: ['projen'],
+  devDeps: ['@jest/globals'],
   description: 'CMake project type for Projen',
 });
 

@@ -35,6 +35,7 @@
     "organization": false
   },
   "devDependencies": {
+    "@jest/globals": "^29.5.0",
     "@types/jest": "^27",
     "@types/node": "^16",
     "@typescript-eslint/eslint-plugin": "^5",

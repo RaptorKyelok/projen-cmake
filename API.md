@@ -29,7 +29,7 @@ const cMakeProjectOptions: CMakeProjectOptions = { ... }
 | <code><a href="#projen-cmake.CMakeProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
 | <code><a href="#projen-cmake.CMakeProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#projen-cmake.CMakeProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#projen-cmake.CMakeProjectOptions.property.cmakeMinVersion">cmakeMinVersion</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeProjectOptions.property.cmakeMinVersion">cmakeMinVersion</a></code> | <code>number</code> | The version of CMake that CMakeLists.txt should specify. |
 
 ---
 
@@ -201,10 +201,469 @@ public readonly cmakeMinVersion: number;
 ```
 
 - *Type:* number
+- *Default:* 3.5
+
+The version of CMake that CMakeLists.txt should specify.
 
 ---
 
 ## Classes <a name="Classes" id="Classes"></a>
+
+### CMakeExecutable <a name="CMakeExecutable" id="projen-cmake.CMakeExecutable"></a>
+
+#### Initializers <a name="Initializers" id="projen-cmake.CMakeExecutable.Initializer"></a>
+
+```typescript
+import { CMakeExecutable } from 'projen-cmake'
+
+new CMakeExecutable(project: CMakeProject, name: string, declaration_number: number)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakeExecutable.Initializer.parameter.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.Initializer.parameter.declaration_number">declaration_number</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakeExecutable.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeExecutable.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `declaration_number`<sup>Required</sup> <a name="declaration_number" id="projen-cmake.CMakeExecutable.Initializer.parameter.declaration_number"></a>
+
+- *Type:* number
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-cmake.CMakeExecutable.synth">synth</a></code> | *No description.* |
+
+---
+
+##### `synth` <a name="synth" id="projen-cmake.CMakeExecutable.synth"></a>
+
+```typescript
+public synth(cmakefile: TextFile): void
+```
+
+###### `cmakefile`<sup>Required</sup> <a name="cmakefile" id="projen-cmake.CMakeExecutable.synth.parameter.cmakefile"></a>
+
+- *Type:* projen.TextFile
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakeExecutable.property.dependsOn">dependsOn</a></code> | <code><a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.property.postfixLines">postfixLines</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.property.prefixLines">prefixLines</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.property.declarationNumber">declarationNumber</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.property.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.property.targetLibraries">targetLibraries</a></code> | <code><a href="#projen-cmake.CMakeLibrary">CMakeLibrary</a>[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeExecutable.property.filenames">filenames</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `dependsOn`<sup>Required</sup> <a name="dependsOn" id="projen-cmake.CMakeExecutable.property.dependsOn"></a>
+
+```typescript
+public readonly dependsOn: CMakeFileFragment[];
+```
+
+- *Type:* <a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]
+
+---
+
+##### `postfixLines`<sup>Required</sup> <a name="postfixLines" id="projen-cmake.CMakeExecutable.property.postfixLines"></a>
+
+```typescript
+public readonly postfixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `prefixLines`<sup>Required</sup> <a name="prefixLines" id="projen-cmake.CMakeExecutable.property.prefixLines"></a>
+
+```typescript
+public readonly prefixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `declarationNumber`<sup>Required</sup> <a name="declarationNumber" id="projen-cmake.CMakeExecutable.property.declarationNumber"></a>
+
+```typescript
+public readonly declarationNumber: number;
+```
+
+- *Type:* number
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeExecutable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakeExecutable.property.project"></a>
+
+```typescript
+public readonly project: CMakeProject;
+```
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
+##### `targetLibraries`<sup>Required</sup> <a name="targetLibraries" id="projen-cmake.CMakeExecutable.property.targetLibraries"></a>
+
+```typescript
+public readonly targetLibraries: CMakeLibrary[];
+```
+
+- *Type:* <a href="#projen-cmake.CMakeLibrary">CMakeLibrary</a>[]
+
+---
+
+##### `filenames`<sup>Required</sup> <a name="filenames" id="projen-cmake.CMakeExecutable.property.filenames"></a>
+
+```typescript
+public readonly filenames: string[];
+```
+
+- *Type:* string[]
+
+---
+
+
+### CMakeFileFragment <a name="CMakeFileFragment" id="projen-cmake.CMakeFileFragment"></a>
+
+#### Initializers <a name="Initializers" id="projen-cmake.CMakeFileFragment.Initializer"></a>
+
+```typescript
+import { CMakeFileFragment } from 'projen-cmake'
+
+new CMakeFileFragment()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakeFileFragment.property.dependsOn">dependsOn</a></code> | <code><a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeFileFragment.property.postfixLines">postfixLines</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeFileFragment.property.prefixLines">prefixLines</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `dependsOn`<sup>Required</sup> <a name="dependsOn" id="projen-cmake.CMakeFileFragment.property.dependsOn"></a>
+
+```typescript
+public readonly dependsOn: CMakeFileFragment[];
+```
+
+- *Type:* <a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]
+
+---
+
+##### `postfixLines`<sup>Required</sup> <a name="postfixLines" id="projen-cmake.CMakeFileFragment.property.postfixLines"></a>
+
+```typescript
+public readonly postfixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `prefixLines`<sup>Required</sup> <a name="prefixLines" id="projen-cmake.CMakeFileFragment.property.prefixLines"></a>
+
+```typescript
+public readonly prefixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+
+### CMakeLibrary <a name="CMakeLibrary" id="projen-cmake.CMakeLibrary"></a>
+
+#### Initializers <a name="Initializers" id="projen-cmake.CMakeLibrary.Initializer"></a>
+
+```typescript
+import { CMakeLibrary } from 'projen-cmake'
+
+new CMakeLibrary(project: CMakeProject, name: string, declaration_number: number)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakeLibrary.Initializer.parameter.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.Initializer.parameter.declaration_number">declaration_number</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakeLibrary.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeLibrary.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `declaration_number`<sup>Required</sup> <a name="declaration_number" id="projen-cmake.CMakeLibrary.Initializer.parameter.declaration_number"></a>
+
+- *Type:* number
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-cmake.CMakeLibrary.addSourceFile">addSourceFile</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.synth">synth</a></code> | *No description.* |
+
+---
+
+##### `addSourceFile` <a name="addSourceFile" id="projen-cmake.CMakeLibrary.addSourceFile"></a>
+
+```typescript
+public addSourceFile(filename: string): CMakeLibrary
+```
+
+###### `filename`<sup>Required</sup> <a name="filename" id="projen-cmake.CMakeLibrary.addSourceFile.parameter.filename"></a>
+
+- *Type:* string
+
+---
+
+##### `synth` <a name="synth" id="projen-cmake.CMakeLibrary.synth"></a>
+
+```typescript
+public synth(cmakefile: TextFile): void
+```
+
+###### `cmakefile`<sup>Required</sup> <a name="cmakefile" id="projen-cmake.CMakeLibrary.synth.parameter.cmakefile"></a>
+
+- *Type:* projen.TextFile
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakeLibrary.property.dependsOn">dependsOn</a></code> | <code><a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.property.postfixLines">postfixLines</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.property.prefixLines">prefixLines</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.property.declarationNumber">declarationNumber</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.property.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.property.targetLibraries">targetLibraries</a></code> | <code><a href="#projen-cmake.CMakeLibrary">CMakeLibrary</a>[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.property.filenames">filenames</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `dependsOn`<sup>Required</sup> <a name="dependsOn" id="projen-cmake.CMakeLibrary.property.dependsOn"></a>
+
+```typescript
+public readonly dependsOn: CMakeFileFragment[];
+```
+
+- *Type:* <a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]
+
+---
+
+##### `postfixLines`<sup>Required</sup> <a name="postfixLines" id="projen-cmake.CMakeLibrary.property.postfixLines"></a>
+
+```typescript
+public readonly postfixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `prefixLines`<sup>Required</sup> <a name="prefixLines" id="projen-cmake.CMakeLibrary.property.prefixLines"></a>
+
+```typescript
+public readonly prefixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `declarationNumber`<sup>Required</sup> <a name="declarationNumber" id="projen-cmake.CMakeLibrary.property.declarationNumber"></a>
+
+```typescript
+public readonly declarationNumber: number;
+```
+
+- *Type:* number
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeLibrary.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakeLibrary.property.project"></a>
+
+```typescript
+public readonly project: CMakeProject;
+```
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
+##### `targetLibraries`<sup>Required</sup> <a name="targetLibraries" id="projen-cmake.CMakeLibrary.property.targetLibraries"></a>
+
+```typescript
+public readonly targetLibraries: CMakeLibrary[];
+```
+
+- *Type:* <a href="#projen-cmake.CMakeLibrary">CMakeLibrary</a>[]
+
+---
+
+##### `filenames`<sup>Required</sup> <a name="filenames" id="projen-cmake.CMakeLibrary.property.filenames"></a>
+
+```typescript
+public readonly filenames: string[];
+```
+
+- *Type:* string[]
+
+---
+
+
+### CMakePackage <a name="CMakePackage" id="projen-cmake.CMakePackage"></a>
+
+#### Initializers <a name="Initializers" id="projen-cmake.CMakePackage.Initializer"></a>
+
+```typescript
+import { CMakePackage } from 'projen-cmake'
+
+new CMakePackage(project: CMakeProject, name: string, declaration_number: number)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakePackage.Initializer.parameter.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakePackage.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakePackage.Initializer.parameter.declaration_number">declaration_number</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakePackage.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakePackage.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `declaration_number`<sup>Required</sup> <a name="declaration_number" id="projen-cmake.CMakePackage.Initializer.parameter.declaration_number"></a>
+
+- *Type:* number
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakePackage.property.declarationNumber">declarationNumber</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakePackage.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakePackage.property.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+
+---
+
+##### `declarationNumber`<sup>Required</sup> <a name="declarationNumber" id="projen-cmake.CMakePackage.property.declarationNumber"></a>
+
+```typescript
+public readonly declarationNumber: number;
+```
+
+- *Type:* number
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakePackage.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakePackage.property.project"></a>
+
+```typescript
+public readonly project: CMakeProject;
+```
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
 
 ### CMakeProject <a name="CMakeProject" id="projen-cmake.CMakeProject"></a>
 
@@ -247,6 +706,9 @@ new CMakeProject(options: CMakeProjectOptions)
 | <code><a href="#projen-cmake.CMakeProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
 | <code><a href="#projen-cmake.CMakeProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
 | <code><a href="#projen-cmake.CMakeProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#projen-cmake.CMakeProject.declareExecutable">declareExecutable</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeProject.declareLibrary">declareLibrary</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeProject.findPackage">findPackage</a></code> | *No description.* |
 
 ---
 
@@ -504,6 +966,42 @@ resolved from the root of _this_ project.
 
 ---
 
+##### `declareExecutable` <a name="declareExecutable" id="projen-cmake.CMakeProject.declareExecutable"></a>
+
+```typescript
+public declareExecutable(name: string): CMakeExecutable
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeProject.declareExecutable.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `declareLibrary` <a name="declareLibrary" id="projen-cmake.CMakeProject.declareLibrary"></a>
+
+```typescript
+public declareLibrary(name: string): CMakeExecutable
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeProject.declareLibrary.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `findPackage` <a name="findPackage" id="projen-cmake.CMakeProject.findPackage"></a>
+
+```typescript
+public findPackage(package_name: string): CMakePackage
+```
+
+###### `package_name`<sup>Required</sup> <a name="package_name" id="projen-cmake.CMakeProject.findPackage.parameter.package_name"></a>
+
+- *Type:* string
+
+---
+
 
 #### Properties <a name="Properties" id="Properties"></a>
 
@@ -532,6 +1030,7 @@ resolved from the root of _this_ project.
 | <code><a href="#projen-cmake.CMakeProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
 | <code><a href="#projen-cmake.CMakeProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
 | <code><a href="#projen-cmake.CMakeProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#projen-cmake.CMakeProject.property.defaultCMakeMinVersion">defaultCMakeMinVersion</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -808,6 +1307,16 @@ If undefined, this is the root project.
 
 ---
 
+##### `defaultCMakeMinVersion`<sup>Required</sup> <a name="defaultCMakeMinVersion" id="projen-cmake.CMakeProject.property.defaultCMakeMinVersion"></a>
+
+```typescript
+public readonly defaultCMakeMinVersion: number;
+```
+
+- *Type:* number
+
+---
+
 #### Constants <a name="Constants" id="Constants"></a>
 
 | **Name** | **Type** | **Description** |
@@ -830,5 +1339,128 @@ Normally
 this task should synthesize the project files.
 
 ---
+
+### CMakeTarget <a name="CMakeTarget" id="projen-cmake.CMakeTarget"></a>
+
+#### Initializers <a name="Initializers" id="projen-cmake.CMakeTarget.Initializer"></a>
+
+```typescript
+import { CMakeTarget } from 'projen-cmake'
+
+new CMakeTarget(project: CMakeProject, name: string, declaration_number: number)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakeTarget.Initializer.parameter.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.Initializer.parameter.declaration_number">declaration_number</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakeTarget.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeTarget.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `declaration_number`<sup>Required</sup> <a name="declaration_number" id="projen-cmake.CMakeTarget.Initializer.parameter.declaration_number"></a>
+
+- *Type:* number
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-cmake.CMakeTarget.property.dependsOn">dependsOn</a></code> | <code><a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.property.postfixLines">postfixLines</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.property.prefixLines">prefixLines</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.property.declarationNumber">declarationNumber</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.property.project">project</a></code> | <code><a href="#projen-cmake.CMakeProject">CMakeProject</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeTarget.property.targetLibraries">targetLibraries</a></code> | <code><a href="#projen-cmake.CMakeLibrary">CMakeLibrary</a>[]</code> | *No description.* |
+
+---
+
+##### `dependsOn`<sup>Required</sup> <a name="dependsOn" id="projen-cmake.CMakeTarget.property.dependsOn"></a>
+
+```typescript
+public readonly dependsOn: CMakeFileFragment[];
+```
+
+- *Type:* <a href="#projen-cmake.CMakeFileFragment">CMakeFileFragment</a>[]
+
+---
+
+##### `postfixLines`<sup>Required</sup> <a name="postfixLines" id="projen-cmake.CMakeTarget.property.postfixLines"></a>
+
+```typescript
+public readonly postfixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `prefixLines`<sup>Required</sup> <a name="prefixLines" id="projen-cmake.CMakeTarget.property.prefixLines"></a>
+
+```typescript
+public readonly prefixLines: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `declarationNumber`<sup>Required</sup> <a name="declarationNumber" id="projen-cmake.CMakeTarget.property.declarationNumber"></a>
+
+```typescript
+public readonly declarationNumber: number;
+```
+
+- *Type:* number
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-cmake.CMakeTarget.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="projen-cmake.CMakeTarget.property.project"></a>
+
+```typescript
+public readonly project: CMakeProject;
+```
+
+- *Type:* <a href="#projen-cmake.CMakeProject">CMakeProject</a>
+
+---
+
+##### `targetLibraries`<sup>Required</sup> <a name="targetLibraries" id="projen-cmake.CMakeTarget.property.targetLibraries"></a>
+
+```typescript
+public readonly targetLibraries: CMakeLibrary[];
+```
+
+- *Type:* <a href="#projen-cmake.CMakeLibrary">CMakeLibrary</a>[]
+
+---
+
 
 
