@@ -60,8 +60,12 @@
     "projen": "^0.71.7"
   },
   "dependencies": {
-    "projen": "^0.71.7"
+    "projen": "^0.71.7",
+    "semver": "^7.5.0"
   },
+  "bundledDependencies": [
+    "semver"
+  ],
   "keywords": [
     "c++",
     "cmake",
@@ -69,6 +73,14 @@
   ],
   "main": "lib/index.js",
   "license": "MIT",
+  "typesVersions": {
+    "<=3.9": {
+      "lib/*": [
+        "lib/.types-compat/ts3.9/*",
+        "lib/.types-compat/ts3.9/*/index.d.ts"
+      ]
+    }
+  },
   "version": "0.1.1",
   "jest": {
     "testMatch": [

@@ -90,6 +90,10 @@
       "type": "build"
     },
     {
+      "name": "semver",
+      "type": "bundled"
+    },
+    {
       "name": "projen",
       "type": "peer"
     },

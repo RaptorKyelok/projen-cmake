@@ -1,4 +1,5 @@
 const { cdk } = require('projen');
+
 const project = new cdk.JsiiProject({
   author: 'Kyelok',
   authorAddress: 'kyelok.raptor@gmail.com',
@@ -24,11 +25,13 @@ const project = new cdk.JsiiProject({
 
   packageName: 'projen-cmake',
   deps: ['projen'],
+  bundledDeps: ['semver'],
   devDeps: ['@jest/globals'],
   description: 'CMake project type for Projen',
 });
 
 project.package.addVersion('0.1.1');
 project.package.addPeerDeps('projen');
+
 
 project.synth();

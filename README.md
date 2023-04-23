@@ -17,10 +17,13 @@ Run the command `npx projen new --from projen-cmake` to create a default CMake p
 ## Plan
 
 - [ ] Craft simple `CMakeLists.txt` files
-  - [ ] Project declaration
+  - [X] Project declaration
   - [ ] Add executables and libraries
+    - [X] Define them
+    - [ ] Add files to them
   - [ ] Find packages
-  - [ ] Add target libraries, compiler options, etc. from packages
+    - [ ] Generate declaration
+    - [ ] Add target libraries, compiler options, etc. to exes and libs from packages
 - [ ] Generate good [Catch2](https://github.com/catchorg/Catch2) test configuration
   - [ ] Generate individual unit tests
 - [ ] Set up project using [Pitchfork Layout](https://api.csswg.org/bikeshed/?force=1&url=https://raw.githubusercontent.com/vector-of-bool/pitchfork/develop/data/spec.bs) rules by default

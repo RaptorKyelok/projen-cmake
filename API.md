@@ -29,7 +29,9 @@ const cMakeProjectOptions: CMakeProjectOptions = { ... }
 | <code><a href="#projen-cmake.CMakeProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
 | <code><a href="#projen-cmake.CMakeProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#projen-cmake.CMakeProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#projen-cmake.CMakeProjectOptions.property.cmakeMinVersion">cmakeMinVersion</a></code> | <code>number</code> | The version of CMake that CMakeLists.txt should specify. |
+| <code><a href="#projen-cmake.CMakeProjectOptions.property.cmakeMinVersion">cmakeMinVersion</a></code> | <code>string</code> | The version of CMake that CMakeLists.txt should specify. If a value is passed that isn't coercible to a semantic version, the default value will be used instead. |
+| <code><a href="#projen-cmake.CMakeProjectOptions.property.cmakeProjectLanguages">cmakeProjectLanguages</a></code> | <code>string[]</code> | The languages the CMake project uses. |
+| <code><a href="#projen-cmake.CMakeProjectOptions.property.cmakeProjectVersion">cmakeProjectVersion</a></code> | <code>string</code> | The version the constructed CMake project will specify. |
 
 ---
 
@@ -197,13 +199,39 @@ Options for renovatebot.
 ##### `cmakeMinVersion`<sup>Optional</sup> <a name="cmakeMinVersion" id="projen-cmake.CMakeProjectOptions.property.cmakeMinVersion"></a>
 
 ```typescript
-public readonly cmakeMinVersion: number;
+public readonly cmakeMinVersion: string;
 ```
 
-- *Type:* number
-- *Default:* 3.5
+- *Type:* string
+- *Default:* "3.5.0"
 
-The version of CMake that CMakeLists.txt should specify.
+The version of CMake that CMakeLists.txt should specify. If a value is passed that isn't coercible to a semantic version, the default value will be used instead.
+
+---
+
+##### `cmakeProjectLanguages`<sup>Optional</sup> <a name="cmakeProjectLanguages" id="projen-cmake.CMakeProjectOptions.property.cmakeProjectLanguages"></a>
+
+```typescript
+public readonly cmakeProjectLanguages: string[];
+```
+
+- *Type:* string[]
+- *Default:* undefined
+
+The languages the CMake project uses.
+
+---
+
+##### `cmakeProjectVersion`<sup>Optional</sup> <a name="cmakeProjectVersion" id="projen-cmake.CMakeProjectOptions.property.cmakeProjectVersion"></a>
+
+```typescript
+public readonly cmakeProjectVersion: string;
+```
+
+- *Type:* string
+- *Default:* undefined
+
+The version the constructed CMake project will specify.
 
 ---
 
@@ -249,7 +277,20 @@ new CMakeExecutable(project: CMakeProject, name: string, declaration_number: num
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#projen-cmake.CMakeExecutable.addFile">addFile</a></code> | *No description.* |
 | <code><a href="#projen-cmake.CMakeExecutable.synth">synth</a></code> | *No description.* |
+
+---
+
+##### `addFile` <a name="addFile" id="projen-cmake.CMakeExecutable.addFile"></a>
+
+```typescript
+public addFile(filename: string): CMakeLibrary
+```
+
+###### `filename`<sup>Required</sup> <a name="filename" id="projen-cmake.CMakeExecutable.addFile.parameter.filename"></a>
+
+- *Type:* string
 
 ---
 
@@ -460,18 +501,18 @@ new CMakeLibrary(project: CMakeProject, name: string, declaration_number: number
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-cmake.CMakeLibrary.addSourceFile">addSourceFile</a></code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeLibrary.addFile">addFile</a></code> | *No description.* |
 | <code><a href="#projen-cmake.CMakeLibrary.synth">synth</a></code> | *No description.* |
 
 ---
 
-##### `addSourceFile` <a name="addSourceFile" id="projen-cmake.CMakeLibrary.addSourceFile"></a>
+##### `addFile` <a name="addFile" id="projen-cmake.CMakeLibrary.addFile"></a>
 
 ```typescript
-public addSourceFile(filename: string): CMakeLibrary
+public addFile(filename: string): CMakeLibrary
 ```
 
-###### `filename`<sup>Required</sup> <a name="filename" id="projen-cmake.CMakeLibrary.addSourceFile.parameter.filename"></a>
+###### `filename`<sup>Required</sup> <a name="filename" id="projen-cmake.CMakeLibrary.addFile.parameter.filename"></a>
 
 - *Type:* string
 
@@ -1030,7 +1071,10 @@ public findPackage(package_name: string): CMakePackage
 | <code><a href="#projen-cmake.CMakeProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
 | <code><a href="#projen-cmake.CMakeProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
 | <code><a href="#projen-cmake.CMakeProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#projen-cmake.CMakeProject.property.defaultCMakeMinVersion">defaultCMakeMinVersion</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeProject.property.cmakeMinVersion">cmakeMinVersion</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeProject.property.defaultCMakeMinVersion">defaultCMakeMinVersion</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeProject.property.cmakeProjectLanguages">cmakeProjectLanguages</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#projen-cmake.CMakeProject.property.cmakeProjectVersion">cmakeProjectVersion</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -1307,13 +1351,43 @@ If undefined, this is the root project.
 
 ---
 
+##### `cmakeMinVersion`<sup>Required</sup> <a name="cmakeMinVersion" id="projen-cmake.CMakeProject.property.cmakeMinVersion"></a>
+
+```typescript
+public readonly cmakeMinVersion: string;
+```
+
+- *Type:* string
+
+---
+
 ##### `defaultCMakeMinVersion`<sup>Required</sup> <a name="defaultCMakeMinVersion" id="projen-cmake.CMakeProject.property.defaultCMakeMinVersion"></a>
 
 ```typescript
-public readonly defaultCMakeMinVersion: number;
+public readonly defaultCMakeMinVersion: string;
 ```
 
-- *Type:* number
+- *Type:* string
+
+---
+
+##### `cmakeProjectLanguages`<sup>Optional</sup> <a name="cmakeProjectLanguages" id="projen-cmake.CMakeProject.property.cmakeProjectLanguages"></a>
+
+```typescript
+public readonly cmakeProjectLanguages: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `cmakeProjectVersion`<sup>Optional</sup> <a name="cmakeProjectVersion" id="projen-cmake.CMakeProject.property.cmakeProjectVersion"></a>
+
+```typescript
+public readonly cmakeProjectVersion: string;
+```
+
+- *Type:* string
 
 ---
 
